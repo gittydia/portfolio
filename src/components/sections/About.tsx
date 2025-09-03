@@ -28,17 +28,19 @@ const About: React.FC = () => {
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">Who I Am</h3>
             <p className="text-gray-700 dark:text-gray-300">
-              I am a Information Technology student with a passion in Backend Development. Although, I say that I'm a backend developer, I can work with Frontend but just the basics. I mostly work
-              with implementing AI, structuring and creating Databases, Features that can solve problem in real life.
-              My experience includes building full-stack applications, hackathon projects, and data-driven tools using Python, JavaScript, and MySQL.
+              I am an Information Technology student with a strong passion for Backend Development. 
+              While I primarily focus on backend, I also have experience with the basics of frontend. 
+              My work revolves around implementing AI, designing and structuring databases, and 
+              building features that solve real-life problems. 
+              My experience includes developing full-stack applications, participating in hackathons, 
+              and creating data-driven tools. 
+              What drives me is turning challenges into practical solutions that make an impact.
 
-              I enjoy creating solutions to the real life problems, it's what keeps me motivated. Beyond Technical skills, I value collaboration, continuous learning, and creating solutions that have real-world impact.
             </p>
             <p className="text-gray-700 dark:text-gray-300">
-              When I'm not coding, you can find me watching documentaries and F1,
-              reading novels, or experimenting with new technologies. I
-              believe in continuous learning and am always exploring new tools
-              and frameworks to improve my craft.
+              Beyond technical skills, I value collaboration, continuous learning, and building solutions with real-world relevance. 
+              Outside of coding, I enjoy watching documentaries and Formula 1, reading novels, 
+              and exploring new technologies that inspire me to grow both personally and professionally.
             </p>
             <div className="grid grid-cols-2 gap-4 mt-8">
               <div className="flex flex-col items-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow">
