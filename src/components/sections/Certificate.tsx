@@ -50,10 +50,9 @@ const Certificate: React.FC = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-2">Certificates</h2>
           <div className="h-1 w-20 bg-blue-500 mx-auto rounded-full"></div>
-          <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I write about web development, design, and technology. Check out my
-            latest articles below.
-          </p>
+            <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Here are some of the certificates I have earned in technology and related fields.
+            </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map(post => <article key={post.id} className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
