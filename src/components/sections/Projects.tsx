@@ -20,7 +20,7 @@ const Projects: React.FC = () => {
       image: '/rulebox-landing.png',
       tags: ['React', 'Next.js', 'Typescript', 'MongoDB', 'Python','FastAPI','Docker', 'nginx'],
       githubUrl: 'https://github.com/gittydia/RuleBox-F1',
-      liveUrl: 'rulebox-f1.onrender.com/',
+      liveUrl: 'https://rulebox-f1.onrender.com',
       datePublish: '2025',
     }, {
     id: 2,
