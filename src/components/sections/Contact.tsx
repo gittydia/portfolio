@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { MailIcon, PhoneIcon, MapPinIcon, SendIcon, GithubIcon, LinkedinIcon, TwitterIcon } from 'lucide-react';
+import { MailIcon, PhoneIcon, MapPinIcon, SendIcon, GithubIcon, LinkedinIcon, } from 'lucide-react';
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',

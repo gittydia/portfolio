@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ArrowDownIcon, GithubIcon, LinkedinIcon, TwitterIcon } from 'lucide-react';
+import { ArrowDownIcon, GithubIcon, LinkedinIcon, } from 'lucide-react';
 import HeroAnimation from '../3d/HeroAnimation';
 import { useState } from 'react';
 const Hero: React.FC = () => {

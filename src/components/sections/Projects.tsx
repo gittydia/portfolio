@@ -12,13 +12,12 @@ interface Project {
 }
 const Projects: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-    // Import all PNGs from the picture folder
-    const images = import.meta.glob('../picture/*.png', { eager: true, import: 'default' });
+    // Use public folder paths for images
     const projects: Project[] = [{
       id: 1,
       title: 'RuleBox-F1',
       description: 'A fullstack AI-powered Formula 1 regulations assistant and search platform.',
-      image: typeof images['../picture/rulebox-landing.png'] === 'string' ? images['../picture/rulebox-landing.png'] as string : '',
+      image: '/rulebox-landing.png',
       tags: ['React', 'Next.js', 'Typescript', 'MongoDB', 'Python','FastAPI','Docker', 'nginx'],
       githubUrl: 'https://github.com/gittydia/RuleBox-F1',
       liveUrl: 'rulebox-f1.onrender.com/',
@@ -27,7 +26,7 @@ const Projects: React.FC = () => {
     id: 2,
     title: 'PDFHero',
     description: 'An app called PDFhero aids pupils in their efficient study sessions. Among the features that PDFhero provides are concise and well-organized explanations of the PDF information that you provide, notes that are created for you using AI technology, notes that are explained as if you were five years old, a pretest, and lastly you can chat with your PDF or notes!',
-    image: typeof images['../picture/PDFHero.png'] === 'string' ? images['../picture/PDFHero.png'] as string : '',
+    image: '/PDFHero.png',
     tags: ['HTML', 'CSS', 'JavaScript', 'Python', 'FastAPI'],
     githubUrl: 'https://github.com/gittydia/PDFhero',
     datePublish: '2024',
@@ -36,7 +35,7 @@ const Projects: React.FC = () => {
     title: 'AMBAG',
     description: `A collaborative financial platform developed during a hackathon to help groups manage shared savings, bill payments, and contributions. It enables users to create financial goals, track group progress, automate reminders, and manage payments collectively.
     As part of the team, I focused on backend, database, middleware development, and deployment. I also integrated the backend with the frontend, ensuring seamless communication and a cohesive user experience.`,
-    image: typeof images['../picture/ambag-landing.png'] === 'string' ? images['../picture/ambag-landing.png'] as string : '',
+    image: '/ambag-landing.png',
     tags: ['JavaScript', 'React','Typescript', 'Python', 'FastAPI', 'MongoDB', 'Firebase', 'Docker'],
     githubUrl: 'https://github.com/gittydia/AMBAG-Datawave2025/tree/main/frontend',
     liveUrl: 'https://ambag.onrender.com',

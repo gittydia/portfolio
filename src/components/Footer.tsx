@@ -1,5 +1,5 @@
 import React from 'react';
-import { GithubIcon, LinkedinIcon, TwitterIcon, HeartIcon } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, HeartIcon } from 'lucide-react';
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-white dark:bg-gray-900 py-12">

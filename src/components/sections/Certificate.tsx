@@ -10,13 +10,12 @@ interface BlogPost {
   category: string;
   link?: string;
 }
-const images = import.meta.glob('../certificate/*.png', { eager: true, import: 'default' });
 const Certificate: React.FC = () => {
   const blogPosts: BlogPost[] = [{
     id: 1,
     title: 'Crash Course on Python',
     excerpt: 'Developed strong problem-solving skills by applying structured frameworks to complex projects. Gained experience in formulating problem statements, researching solutions, planning approaches, and writing scripts to implement effective outcomes.',
-    image: typeof images['../certificate/Coursera.png'] === 'string' ? images['../certificate/Coursera.png'] as string : '',
+    image: '/Coursera.png', 
     date: '2024',
     category: 'Coursera',
     link: 'https://coursera.org/share/8c5e43c3729b12bb5bef4188a9b41b2f'
@@ -24,7 +23,7 @@ const Certificate: React.FC = () => {
     id: 2,
     title: 'Introduction to Cybersecurity',
     excerpt: 'Gained foundational knowledge in cybersecurity, including best practices for protecting personal data and understanding major security challenges faced by organizations. Developed awareness of the growing demand for professionals skilled in defending networks and digital assets.',
-    image: typeof images['../certificate/Cyber.png'] === 'string' ? images['../certificate/Cyber.png'] as string : '',
+    image: '/Cyber.png',
     date: '2024',
     category: 'Cisco',
     link: 'https://www.credly.com/badges/681e6d4e-9cf6-4e51-861d-99b6cb78ea4b/public_url'
@@ -33,7 +32,7 @@ const Certificate: React.FC = () => {
     id: 3,
     title: 'Oracle Cloud Infrastructure 2024 Certified AI Foundations Associate',
     excerpt: 'Earned Oracle Cloud Infrastructure (OCI) AI Foundations certification, demonstrating strong knowledge of AI and ML concepts, including supervised/unsupervised learning, deep learning models (CNNs, RNNs, LSTMs), and generative AI. Gained hands-on familiarity with OCI’s AI/ML services and tools, applying them to real-world business challenges.',
-    image: typeof images['../certificate/oracle-foundations.png'] === 'string' ? images['../certificate/oracle-foundations.png'] as string : '',
+    image: '/oracle-foundations.png',
     date: '2024',
     category: 'Oracle',
     link: 'https://catalog-education.oracle.com/ords/certview/sharebadge?id=E8C52F21E7B714548023E582D868F3793398EE543433DA6294C7029B0839C336'
@@ -41,7 +40,7 @@ const Certificate: React.FC = () => {
     id: 4,
     title: 'Completed Data Science & Machine Learning course',
     excerpt: 'Gaining hands-on experience with Python libraries for data analysis and visualization, and building predictive models using various ML algorithms and techniques.',
-    image: typeof images['../certificate/data-ML.png'] === 'string' ? images['../certificate/data-ML.png'] as string : '',
+    image: '/data-ML.png',
     date: '2024',
     category: 'Udemy',
     link: 'https://www.udemy.com/certificate/UC-b2a4f0a0-6d17-4164-b163-77ff6bd9c79c/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com'

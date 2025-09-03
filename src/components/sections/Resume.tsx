@@ -26,7 +26,7 @@ const Resume: React.FC = () => {
         <div className="max-w-3xl mx-auto">
           {/* Download Button */}
           <div className="flex justify-center mb-12">
-            <a href="/src/components/resume/resume-dianne-boholst-0824.pdf" download className="flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
+            <a href="/resume-dianne-boholst-0824.pdf" download className="flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
               <DownloadIcon className="h-5 w-5 mr-2" /> Download CV
             </a>
           </div>
