@@ -74,7 +74,7 @@ const Hero: React.FC = () => {
           <div className="animate-float-3d">
             {animationLoaded ? <HeroAnimation /> : (
               <div className="flex items-center justify-center h-64">
-                <span className="text-white/60 text-lg animate-pulse">Loading animation...</span>
+                <span className="text-white/60 text-lg animate-pulse"></span>
               </div>
             )}
           </div>
