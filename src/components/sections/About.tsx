@@ -6,7 +6,7 @@ const About: React.FC = () => {
     name: 'Python',
     level: 90
   }, {
-    name: 'MySQL',
+    name: 'SQL',
     level: 50
   }, {
     name: 'JavaScript',
@@ -88,7 +88,7 @@ const About: React.FC = () => {
                   Rizal Technological University, 2023-ongoing
                 </p>
                 <p className="text-sm mt-2 text-gray-700 dark:text-gray-300">
-                    Cumulative GWA: 1.50, Academic Achiever 2023-2024
+                    Cumulative GWA: 1.50, Academic Achiever 2023-2025
                 </p>
                 <p className="text-sm mt-2 text-gray-700 dark:text-gray-300">
                     Relevant Course Work: Software Engineering, Networking, Algorithms and System Design  
