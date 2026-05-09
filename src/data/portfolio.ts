@@ -89,7 +89,7 @@ export interface PortfolioContact {
 
 export const profile: PortfolioProfile = {
   name: 'Dianne Boholst',
-  roleCycle: ['a developer', 'a designer', 'a builder'],
+  roleCycle: ['a developer', 'a learner', 'a builder'],
   location: 'Manila, Philippines',
   avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=640&q=80',
   shortBio:
@@ -253,7 +253,7 @@ export const hackathons: HackathonWin[] = [
       'Collaborated with a team of 4 developers.',
       'Received recognition for creative problem-solving.',
     ],
-    href: '/competitions/bukidmate',
+    href: '/competitions/Bukidmate',
   },
 ];
 
