@@ -1,4 +1,4 @@
-export type TimelineCategory = 'Work' | 'Leadership' | 'Startup' | 'Education';
+export type TimelineCategory = 'Work' | 'Leadership' | 'Startup' | 'Education' | 'Internship';
 
 export interface NavLink {
   label: string;
