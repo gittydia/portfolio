@@ -253,7 +253,7 @@ export const hackathons: HackathonWin[] = [
       'Collaborated with a team of 4 developers.',
       'Received recognition for creative problem-solving.',
     ],
-    href: '/competitions/Bukidmate',
+    href: '/competitions/BukidMate',
   },
 ];
 
