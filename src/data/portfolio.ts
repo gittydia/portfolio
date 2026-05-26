@@ -60,6 +60,7 @@ export interface TechStackItem {
   slug: string;
   color: string;
   href: string;
+  category: string;
 }
 
 export interface SocialLink {
@@ -309,18 +310,53 @@ export const timelineEntries: TimelineEntry[] = [
 ];
 
 export const techStack: TechStackItem[] = [
-  { name: 'React', slug: 'react', color: '61DAFB', href: 'https://react.dev/' },
-  { name: 'TypeScript', slug: 'typescript', color: '3178C6', href: 'https://www.typescriptlang.org/' },
-  { name: 'Vite', slug: 'vite', color: '646CFF', href: 'https://vitejs.dev/' },
-  { name: 'React Router', slug: 'reactrouter', color: 'CA4245', href: 'https://reactrouter.com/' },
-  { name: 'Tailwind CSS', slug: 'tailwindcss', color: '06B6D4', href: 'https://tailwindcss.com/' },
-  { name: 'Three.js', slug: 'threedotjs', color: '000000', href: 'https://threejs.org/' },
-  { name: 'Lucide', slug: 'lucide', color: '171411', href: 'https://lucide.dev/' },
-  { name: 'EmailJS', slug: 'emailjs', color: 'E94D3C', href: 'https://www.emailjs.com/' },
-  { name: 'ESLint', slug: 'eslint', color: '4B32C3', href: 'https://eslint.org/' },
-  { name: 'Node.js', slug: 'node.js', color: '339933', href: 'https://nodejs.org/' },
-  { name: 'Figma', slug: 'figma', color: 'F24E1E', href: 'https://www.figma.com/' },
-  { name: 'GitHub', slug: 'github', color: '181717', href: 'https://github.com/' },
+  // Languages
+  { name: 'Python', slug: 'python', color: '3776AB', href: 'https://www.python.org/', category: 'Languages' },
+  { name: 'JavaScript', slug: 'javascript', color: 'F7DF1E', href: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', category: 'Languages' },
+  { name: 'TypeScript', slug: 'typescript', color: '3178C6', href: 'https://www.typescriptlang.org/', category: 'Languages' },
+  { name: 'HTML', slug: 'html5', color: 'E34F26', href: 'https://developer.mozilla.org/en-US/docs/Web/HTML', category: 'Languages' },
+  { name: 'CSS', slug: 'css3', color: '1572B6', href: 'https://developer.mozilla.org/en-US/docs/Web/CSS', category: 'Languages' },
+  { name: 'XML', slug: 'xml', color: '005FAD', href: 'https://www.w3.org/XML/', category: 'Languages' },
+  { name: 'WebAssembly', slug: 'webassembly', color: '654FF0', href: 'https://webassembly.org/', category: 'Languages' },
+
+  // Frameworks & Libraries
+  { name: 'React', slug: 'react', color: '61DAFB', href: 'https://react.dev/', category: 'Frameworks & Libraries' },
+  { name: 'Next.js', slug: 'nextdotjs', color: '000000', href: 'https://nextjs.org/', category: 'Frameworks & Libraries' },
+  { name: 'Node.js', slug: 'nodedotjs', color: '339933', href: 'https://nodejs.org/', category: 'Frameworks & Libraries' },
+  { name: 'FastAPI', slug: 'fastapi', color: '009688', href: 'https://fastapi.tiangolo.com/', category: 'Frameworks & Libraries' },
+  { name: 'Odoo ERP', slug: 'odoo', color: 'A246CF', href: 'https://www.odoo.com/', category: 'Frameworks & Libraries' },
+  { name: 'Scikit-learn', slug: 'scikitlearn', color: 'F7931E', href: 'https://scikit-learn.org/', category: 'Frameworks & Libraries' },
+
+  // Databases
+  { name: 'PostgreSQL', slug: 'postgresql', color: '4169E1', href: 'https://www.postgresql.org/', category: 'Databases' },
+  { name: 'pgAdmin', slug: 'pgadmin', color: '1B5E20', href: 'https://www.pgadmin.org/', category: 'Databases' },
+  { name: 'MySQL', slug: 'mysql', color: '4479A1', href: 'https://www.mysql.com/', category: 'Databases' },
+  { name: 'MongoDB', slug: 'mongodb', color: '47A248', href: 'https://www.mongodb.com/', category: 'Databases' },
+  { name: 'PGlite', slug: 'pglite', color: '336791', href: 'https://pglite.dev/', category: 'Databases' },
+
+  // Tools & Platforms
+  { name: 'Docker', slug: 'docker', color: '2496ED', href: 'https://www.docker.com/', category: 'Tools & Platforms' },
+  { name: 'Git', slug: 'git', color: 'F05032', href: 'https://git-scm.com/', category: 'Tools & Platforms' },
+  { name: 'GitHub', slug: 'github', color: '181717', href: 'https://github.com/', category: 'Tools & Platforms' },
+  { name: 'OneDev', slug: 'onedev', color: '1B1B1F', href: 'https://onedev.io/', category: 'Tools & Platforms' },
+  { name: 'JSON-RPC', slug: 'json', color: '000000', href: 'https://www.jsonrpc.org/', category: 'Tools & Platforms' },
+  { name: 'IndexedDB', slug: 'indexeddb', color: '039BE5', href: 'https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API', category: 'Tools & Platforms' },
+  { name: 'Figma', slug: 'figma', color: 'F24E1E', href: 'https://www.figma.com/', category: 'Tools & Platforms' },
+
+  // AI & ML
+  { name: 'DeepSeek', slug: 'deepseek', color: '4F46E5', href: 'https://deepseek.com/', category: 'AI & ML' },
+  { name: 'OpenAI', slug: 'openai', color: '412991', href: 'https://openai.com/', category: 'AI & ML' },
+];
+
+export const agileSkills: string[] = [
+  'Sprint Planning',
+  'Daily Standups',
+  'Post-mortems',
+  'Retrospectives',
+  'Arrange-Act-Assert Testing',
+  'Smoke Testing',
+  'ETL Operations',
+  'Technical Documentation',
 ];
 
 export const contact: PortfolioContact = {
