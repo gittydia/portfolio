@@ -27,6 +27,8 @@ export default function Contact() {
         {
           from_name: formData.name,
           from_email: formData.email,
+          name: formData.name,
+          email: formData.email,
           subject: formData.subject,
           message: formData.message,
           to_name: profile.name,
@@ -36,10 +38,7 @@ export default function Contact() {
       );
       console.log('Admin email sent:', adminResult.status, adminResult.text);
 
-      setStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-
-      emailjs.send(
+      const autoReplyResult = await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE_ID,
         {
@@ -47,12 +46,15 @@ export default function Contact() {
           to_name: formData.name,
           from_name: profile.name,
           from_email: profile.email,
+          name: formData.name,
+          email: formData.email,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      ).then(
-        (result) => console.log('Auto-reply sent:', result.status, result.text),
-        (error) => console.error('Auto-reply failed:', error)
       );
+      console.log('Auto-reply sent:', autoReplyResult.status, autoReplyResult.text);
+
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
 
       setTimeout(() => setStatus(null), 5000);
     } catch (error) {
