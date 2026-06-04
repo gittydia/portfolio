@@ -30,6 +30,7 @@ export interface Talk {
   title: string;
   event: string;
   date: string;
+  image?: string;
   description: string;
 }
 
@@ -188,25 +189,12 @@ export const blogPosts: BlogPost[] = [
 
 export const talks: Talk[] = [
   {
-    id: 'small-interfaces-big-trust',
-    title: 'Small Interfaces, Big Trust',
-    event: 'Manila Frontend Nights',
-    date: '18 Mar 2026',
-    description: 'Exploring how thoughtful interface design builds user confidence through subtle patterns, clear hierarchy, and intentional whitespace.',
-  },
-  {
-    id: 'design-systems-small-teams',
-    title: 'Building design systems for small teams',
-    event: 'Craft & Code Meetup',
-    date: '07 Nov 2025',
-    description: 'Practical strategies for creating scalable design systems that small teams can actually maintain and evolve over time.',
-  },
-  {
-    id: 'threejs-atmosphere',
-    title: 'Three.js as atmosphere, not spectacle',
-    event: 'Pixel Playground 2025',
-    date: '21 Jul 2025',
-    description: 'Using Three.js to create subtle, atmospheric effects that enhance user experience without overwhelming the interface.',
+    id: 'week-2-bootcamp-aws-s3',
+    title: 'Week 2 Bootcamp: AWS Management Console and Static Website Hosting',
+    event: 'AWS Alpha Weekly Bootcamp',
+    date: '11 May 2026',
+    image: '/taks-aws-s3.jpg',
+    description: 'Facilitated a hands-on bootcamp session focused on AWS fundamentals and the basics of cloud infrastructure. This workshop provided an introduction to navigating the AWS Management Console, helping participants understand core concepts such as choosing appropriate AWS regions, leveraging availability zones for redundancy, and implementing essential cost management strategies, including setting up billing alerts to monitor usage. The practical component of the session centered on hosting static websites using Amazon S3. I guided attendees through the technical steps of bucket configuration, from adjusting permissions to allow public access to enabling static website hosting. By the end of the workshop, participants gained practical experience in cloud deployment, successfully taking their personal portfolio projects from local files to a live, publicly accessible URL.',
   },
 ];
 
