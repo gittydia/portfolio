@@ -208,7 +208,7 @@ export const hackathons: HackathonWin[] = [
     description: 'A collaborative financial platform developed during a hackathon to help groups manage shared savings, bill payments, and contributions. It enables users to create financial goals, track group progress, automate reminders, and manage payments collectively. As part of the team, I focused on backend, database, middleware development, and deployment. I also integrated the backend with the frontend, ensuring seamless communication and a cohesive user experience.',
     accomplishments: [
       'Built the team\u2019s final demo in under one and half months  with a shared component system and rapid content iterations.',
-      'Accomplished all the necessary backend, database, middleware development, and deployment tasks in 2 and half months.',
+      'Accomplished all the necessary backend, database, middleware development, and deployment tasks in one and half months.',
       'Became a semi-finalist among many teams and received recognition for technical contribution and problem-solving.',
     ],
     href: '/competitions/ambag',
