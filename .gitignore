@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.qa-results/
+.playwright-mcp/
+public/media/
+public/social-preview.png

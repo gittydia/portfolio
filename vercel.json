@@ -1,0 +1,13 @@
+{
+  "framework": "vite",
+  "rewrites": [
+    { "source": "/projects", "destination": "/projects/index.html" },
+    { "source": "/projects/:id", "destination": "/projects/:id/index.html" },
+    { "source": "/competitions", "destination": "/competitions/index.html" },
+    { "source": "/competitions/:id", "destination": "/competitions/:id/index.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/:id", "destination": "/blog/:id/index.html" },
+    { "source": "/talks/:id", "destination": "/talks/:id/index.html" },
+    { "source": "/((?!assets/|media/).*)", "destination": "/index.html" }
+  ]
+}

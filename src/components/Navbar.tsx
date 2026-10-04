@@ -1,114 +1,47 @@
-import { useEffect, useState } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-import { navLinks, profile } from '../data/portfolio';
-import { useTheme } from '../context/ThemeContext';
+import { useEffect, useRef, useState } from 'react';
+import { Menu, X, FileText, Folder, ArrowUpRight, ChevronRight } from 'lucide-react';
+import { Link, useLocation, useMatch } from 'react-router-dom';
+import { projects, hackathons, profile, socialLinks } from '../data/portfolio';
+
+const links = [
+  { label: 'Work', file: 'selected-work', id: 'projects' },
+  { label: 'About', file: 'about-dianne', id: 'about' },
+  { label: 'In the margins', file: 'notes-and-experiments', id: 'blog' },
+  { label: 'Contact', file: 'say-hello', id: 'contact' },
+] as const;
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
-
+  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState('home');
+  const toggle = useRef<HTMLButtonElement>(null);
+  const { pathname } = useLocation();
+  const projectMatch = useMatch('/projects/:id');
+  const competitionMatch = useMatch('/competitions/:id');
+  const section = pathname === '/' ? active : /^\/(projects|competitions)/.test(pathname) ? 'projects' : /^\/(blog|talks)/.test(pathname) ? 'blog' : 'home';
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 12);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  return (
-    <header className="sticky top-0 z-50">
-      <div
-        className={`transition-all duration-300 ${
-          isScrolled
-            ? 'bg-bg/90 border-b border-border shadow-sm backdrop-blur-xl'
-            : 'bg-transparent'
-        }`}
-      >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8 lg:px-10">
-          <a href="#home" className="text-lg font-semibold tracking-tight text-fg">
-            {profile.name.split(' ')[0]}
-          </a>
-
-          <nav className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-fg-secondary transition hover:text-fg"
-              >
-                {link.label}
-              </a>
-            ))}
-            <button
-              onClick={toggleTheme}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full transition hover:bg-bg-tertiary"
-              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            >
-              {theme === 'light' ? (
-                <Moon className="h-4 w-4 text-fg-secondary" />
-              ) : (
-                <Sun className="h-4 w-4 text-fg-secondary" />
-              )}
-            </button>
-            <a
-              href={profile.resumeHref}
-              className="rounded-full border border-border px-4 py-2 text-sm font-medium text-fg transition hover:border-accent hover:text-accent"
-            >
-              Resume
-            </a>
-          </nav>
-
-          <div className="flex items-center gap-2 md:hidden">
-            <button
-              onClick={toggleTheme}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full transition hover:bg-bg-tertiary"
-              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            >
-              {theme === 'light' ? (
-                <Moon className="h-4 w-4 text-fg-secondary" />
-              ) : (
-                <Sun className="h-4 w-4 text-fg-secondary" />
-              )}
-            </button>
-            <button
-              type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-fg transition hover:border-accent hover:text-accent"
-              onClick={() => setIsOpen((current) => !current)}
-              aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
-              aria-expanded={isOpen}
-            >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
-          </div>
-        </div>
-
-        <div className={`mx-auto max-w-6xl px-6 pb-5 sm:px-8 lg:px-10 md:hidden ${isOpen ? 'block' : 'hidden'}`}>
-          <div className="rounded-2xl border border-border bg-card/95 p-4 shadow-lg backdrop-blur-xl">
-            <div className="flex flex-col gap-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="rounded-xl px-4 py-3 text-base font-medium text-fg-secondary transition hover:bg-bg-tertiary hover:text-fg"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <a
-                href={profile.resumeHref}
-                className="rounded-xl border border-border px-4 py-3 text-base font-medium text-fg transition hover:border-accent hover:text-accent"
-              >
-                Resume
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) if (entry.isIntersecting) setActive(entry.target.id);
+    }, { rootMargin: '-10% 0px -65% 0px' });
+    document.querySelectorAll('section[id]').forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, [pathname]);
+  return <>
+    <header className="site-header" onKeyDown={(event) => {
+      if (event.key === 'Escape' && open) { setOpen(false); toggle.current?.focus(); }
+    }}>
+      <a href="/#home" className="wordmark"><span aria-hidden="true">~/</span><span>dianne’s digital abode</span></a>
+      <button type="button" ref={toggle} className="menu-toggle" aria-controls="site-index" aria-expanded={open} onClick={() => setOpen(!open)}>
+        {open ? 'Close' : 'Index'}{open ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+      </button>
+      <nav id="site-index" className={`edge-nav ${open ? 'is-open' : ''}`} aria-label="Main navigation">
+        <p className="explorer-label">personal workspace</p>
+        <a href="/#home" aria-current={pathname === '/' && active === 'home' ? 'location' : undefined} onClick={() => setOpen(false)}><FileText aria-hidden="true" />welcome.md</a>
+        {links.map((link, index) => <a key={link.id} href={`/#${link.id}`} aria-label={`0${index + 1} ${link.label}: ${link.file}`} aria-current={section === link.id ? 'location' : undefined} onClick={() => setOpen(false)}><FileText aria-hidden="true" />{link.file}</a>)}
+        <details className="explorer-folder" open={pathname.startsWith('/projects') || undefined}><summary data-current={/^\/projects\/?$/.test(pathname)}><ChevronRight aria-hidden="true" /><Folder aria-hidden="true" />projects</summary><div>{projects.map((project) => <Link key={project.id} to={project.href} aria-current={projectMatch?.params.id === project.id ? 'page' : undefined} onClick={() => setOpen(false)}><FileText aria-hidden="true" />{project.title}</Link>)}</div></details>
+        <details className="explorer-folder" open={pathname.startsWith('/competitions') || undefined}><summary data-current={/^\/competitions\/?$/.test(pathname)}><ChevronRight aria-hidden="true" /><Folder aria-hidden="true" />built-together</summary><div>{hackathons.map((item) => <Link key={item.id} to={item.href} aria-current={competitionMatch?.params.id === item.id ? 'page' : undefined} onClick={() => setOpen(false)}><FileText aria-hidden="true" />{item.title}</Link>)}</div></details>
+        <div className="explorer-elsewhere"><p className="explorer-label">outside this space</p>{socialLinks.map((link) => <a key={link.label} href={link.icon === 'resume' ? `/${profile.resumeHref}` : link.href}><ArrowUpRight aria-hidden="true" />{link.label.toLowerCase()}</a>)}<p className="explorer-note">built with curiosity.<br />always learning.</p></div>
+      </nav>
     </header>
-  );
+    <aside className="workspace-bar" aria-label="Current document"><span>portfolio <span aria-hidden="true">/</span> {pathname === '/' ? 'welcome.md' : pathname.slice(1).replace(/\//g, ' / ').replace(/%20/g, ' ')}</span><span className="availability">open to work · Manila, PH</span></aside>
+  </>;
 }
