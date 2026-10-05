@@ -49,6 +49,14 @@ These exceed the original requested 90/95/95/95 thresholds. Mobile performance i
 - Integrity reviewer: PASS for the dark navigation, canvas lifecycle, motion preferences, responsive sizing and preserved data.
 - Final simplification: no discovery counter, trophy system, theme toggle, duplicate footer CTA, icon grid or decorative stock portrait. The original ASCII signal field is the only continuous decorative motion.
 
+## Deployment requirement
+
+Vercel must run the project's own `build` script, not Vite's bare default. `vercel.json` now sets `buildCommand: npm run build` and `outputDirectory: dist`, which is what generates `public/media/*.webp`, `public/social-preview.png`, the 14 prerendered pages and `sitemap.xml`.
+
+A deployment that ran only `vite build` shipped successfully but 404'd on every `/media/*.webp` response, so all project imagery failed while the original PNG/JPG files still resolved. `<picture>` does not fall back to the `<img>` source when the selected WebP 404s. Confirmed against `https://gittydia.vercel.app/`: `/media/rulebox-landing-960.webp` returned `404 X-Vercel-Error: NOT_FOUND`, `/rulebox-landing.png` returned `200`, and `/sitemap.xml` returned the root HTML document instead of XML. After the configuration change, the local production build serves `/media/*.webp` as `200 image/webp` and `/sitemap.xml` as `200 text/xml`.
+
+Redeploy to publish the fix; the live site still shows the old build until then.
+
 ## Remaining boundaries
 
 - Nothing was committed, pushed or deployed. Vercel configuration is present, but production routing/CDN behavior needs verification after an actual deployment.

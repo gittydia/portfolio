@@ -1,5 +1,7 @@
 {
   "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/projects", "destination": "/projects/index.html" },
     { "source": "/projects/:id", "destination": "/projects/:id/index.html" },
